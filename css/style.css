@@ -1,9 +1,9 @@
 /********** Template CSS **********/
 :root {
-    --primary: #F77D0A;
+    --primary: #A60F24;
     --secondary: #2B2E4A;
     --light: #F4F5F8;
-    --dark: #1C1E32;
+    --dark: #333333;
 }
 
 h1,
@@ -148,7 +148,7 @@ h6,
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(rgba(28, 30, 50, .9), rgba(28, 30, 50, .9)), url(../img/bg-banner.jpg);
+    background: linear-gradient(rgba(166, 15, 36, 0.9), rgba(166, 15, 36, 0.9)), url(../img/bg-banner.jpg);
     background-attachment: fixed;
 }
 
@@ -334,6 +334,6 @@ h6,
 }
 
 .bg-banner {
-    background: linear-gradient(rgba(28, 30, 50, .9), rgba(28, 30, 50, .9)), url(../img/bg-banner.jpg);
+    background: linear-gradient(rgba(166, 15, 36, 0.9), rgba(166, 15, 36, 0.9)), url(../img/bg-banner.jpg);
     background-attachment: fixed;
 }
