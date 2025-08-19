@@ -6,6 +6,117 @@
     --dark: #333333;
 }
 
+
+/* Contenedor overlay */
+#overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none; /* evita clics mientras anima */
+  display: grid;
+  place-items: center;
+  overflow: hidden; /* oculta desbordes de los paneles */
+}
+
+/* Logo centrado */
+#overlay .overlay-logo{
+  max-width: 180px;
+  opacity: 0;
+  transform: scale(.98);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+
+/* Paneles (cortinas) */
+#overlay .overlay-panel{
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 50vw; /* cada panel ocupa la mitad */
+  background: var(--primary);
+  transition: transform 1.8s ease, opacity .8s ease 1.2s;
+  will-change: transform, opacity;
+}
+
+/* Panel izquierdo pegado a la izquierda */
+#overlay .overlay-panel.left{
+  left: 0;
+  transform: translateX(0);
+}
+
+/* Panel derecho pegado a la derecha */
+#overlay .overlay-panel.right{
+  right: 0;
+  transform: translateX(0);
+}
+
+/* Estado inicial: logo entra suave */
+#overlay.ready .overlay-logo{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Estado de apertura: las cortinas se van hacia los lados */
+#overlay.open .overlay-panel.left{
+  transform: translateX(-100%);
+}
+#overlay.open .overlay-panel.right{
+  transform: translateX(100%);
+}
+
+/* Desvanece el logo mientras se abren las cortinas */
+#overlay.open .overlay-logo{
+  opacity: 0;
+  transform: scale(.98);
+  transition: opacity 1s ease 1s, transform 1s ease;
+  /* ↑ añadí delay de 1s antes de que empiece la transición */
+}
+
+
+
+/* Al finalizar: ocultamos el overlay para habilitar clics */
+#overlay.done{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility 0s linear .3s;
+}
+
+/* Accesibilidad: reduce motion si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce){
+  #overlay .overlay-panel,
+  #overlay .overlay-logo{
+    transition: none !important;
+  }
+  #overlay{ display:none; }
+}
+
+/* Estado inicial (oculto) */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .9s ease, transform .9s ease, filter .9s ease;
+  will-change: opacity, transform, filter;
+  filter: blur(2px);
+}
+
+/* Cuando entra en viewport */
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* Variantes */
+
+.reveal.fade-up    { transform: translateY(16px); }
+.reveal.slide-left { transform: translateX(-24px); }
+.reveal.slide-right{ transform: translateX(24px); }
+
+/* Prefiere menos movimiento: muestra sin animar */
+@media (prefers-reduced-motion: reduce){
+  .reveal { transition: none !important; transform: none !important; opacity: 1 !important; filter:none !important; }
+}
+
+
 h1,
 h2,
 .font-weight-bold {

@@ -30,8 +30,13 @@
 </head>
 
 <body>
+    <div id="overlay">
+        <div class="overlay-panel left"></div>
+        <div class="overlay-panel right"></div>
+        <img src="img/WhatsApp Image 2025-08-13 at 08.57.21 (2).jpeg" alt="Automotores Viedma" class="overlay-logo" />
+    </div>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
+    <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block reveal fade-in" data-delay="150">
         <div class="row">
             <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
@@ -56,7 +61,7 @@
 
 
     <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0">
+    <div class="container-fluid position-relative nav-bar p-0 reveal fade-in">
         <div class="position-relative px-lg-5" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-secondary navbar-dark py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
@@ -144,7 +149,7 @@
 
 
     <!-- Carousel Start -->
-    <div class="container-fluid p-0" style="margin-bottom: 90px;">
+    <div class="container-fluid p-0 reveal fade-in" style="margin-bottom: 90px;">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -188,7 +193,7 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 reveal fade-in">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-dark text-center mb-5">Bienvenidos a <span class="text-primary">Automotores Viedma</span></h1>
             <div class="row justify-content-center">
@@ -232,7 +237,7 @@ Estamos en la ciudad de Viedma, brindando atención personalizada y soluciones a
     
 
     <!-- Services Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 reveal fade-in">
         <div class="container pt-5 pb-3">
             <h1 class="display-4 text-uppercase text-dark text-center mb-5">Traelo y <span class="text-primary">Despreocupate</span></h1>
            <!-- <h1 class="display-4 text-uppercase text-center mb-5">Our Services</h1> -->
@@ -316,7 +321,7 @@ Estamos en la ciudad de Viedma, brindando atención personalizada y soluciones a
 
 
     <!-- Banner Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 reveal fade-in">
         <div class="container py-5">
             <div class="bg-banner py-5 px-4 text-center">
                 <div class="py-5">
@@ -532,7 +537,7 @@ Estamos en la ciudad de Viedma, brindando atención personalizada y soluciones a
 
 
     <!-- Banner Start -->
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5 reveal fade-in">
         <div class="container py-5">
             <div class="row mx-0">
                 <div class="col-lg-6 px-0">
@@ -711,7 +716,7 @@ Estamos en la ciudad de Viedma, brindando atención personalizada y soluciones a
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5" style="margin-top: 90px;">
+    <div class="container-fluid bg-secondary py-5 px-sm-3 px-md-5 reveal fade-in" style="margin-top: 90px;">
         <div class="row pt-5">
             <div class="col-lg-3 col-md-6 mb-5 mx-auto text-center">
                     <h4 class="text-uppercase text-white mb-4">Contactanos</h4>
@@ -815,6 +820,8 @@ Estamos en la ciudad de Viedma, brindando atención personalizada y soluciones a
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+     <script src="js/overlay.js"></script>
+     <script src="js/reveal.js"></script>
 </body>
 
 </html>
