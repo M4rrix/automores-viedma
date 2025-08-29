@@ -4,6 +4,7 @@
     --secondary: #2B2E4A;
     --light: #F4F5F8;
     --dark: #333333;
+    
 }
 
 
@@ -196,7 +197,7 @@ h6,
     outline: none;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav,
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--primary);
 }
@@ -262,6 +263,141 @@ h6,
     background: linear-gradient(rgba(166, 15, 36, 0.9), rgba(166, 15, 36, 0.9)), url(../img/bg-banner.jpg);
     background-attachment: fixed;
 }
+
+/* ===== Split hero minimal ===== */
+.split-hero{
+  /* fondo sutil dividido: blanco -> var(--light) */
+  background: linear-gradient(90deg, #fff 0 55%, var(--light) 55% 100%);
+}
+@media (max-width: 991.98px){
+  .split-hero{ background:#fff; }  /* en mobile fondo liso */
+}
+
+/* Eyebrow */
+.eyebrow{
+  display:inline-block;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.75rem;
+  color:#8a8f98;
+  margin-bottom:.5rem;
+}
+
+/* Resaltado de marca bajo una palabra */
+.highlight{
+  position:relative; z-index:0;
+}
+.highlight::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:.15em; height:.4em;
+  /* 15% de tu primary con transparencia (soporta color-mix) */
+  background: color-mix(in srgb, var(--primary), transparent 85%);
+  border-radius:.25rem;
+  z-index:-1;
+}
+
+/* Botón de marca (no pisa .btn de Bootstrap) */
+.btn-brand{
+  background: var(--primary);
+  color:#fff;
+  border:none;
+  padding:.7rem 1.2rem;
+  border-radius:.75rem;
+  /* sombra usando el color de marca */
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--primary), transparent 75%);
+}
+.btn-brand:hover{
+  background: color-mix(in srgb, var(--primary), black 10%);
+}
+
+/* Bullets con check minimal */
+.check{
+  width:1.1rem; height:1.1rem; border-radius:50%;
+  display:inline-block; flex:0 0 auto;
+  background: radial-gradient(circle at 55% 45%, #fff 40%, transparent 41%) var(--primary);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--primary), transparent 85%);
+}
+
+/* Marco de imagen con sombra suave */
+.image-frame{
+  background:#fff;
+  border-radius:1rem;
+  padding:1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  max-width: 820px; /* para que no se haga gigante en pantallas grandes */
+}
+.image-frame img{ display:block; width:100%; height:auto; }
+
+
+
+/* Tarjetas con fondo + overlay */
+.vehicle-card{
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  min-height: 360px;
+  display: grid;
+  background: var(--light);
+}
+.vehicle-card.with-bg::before{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--light) no-repeat center/cover;
+  background-image: var(--bg);
+  transform: scale(1);
+  transition: transform .4s ease;
+}
+.vehicle-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.6));
+}
+.vehicle-card:hover::before{ transform: scale(1.03); }
+
+.vehicle-card__content{
+  position:relative; z-index:1; color:#fff;
+  padding: 2rem; display:flex; flex-direction:column; justify-content:flex-end;
+  height:100%;
+}
+
+/* Reutiliza estilos previos */
+.eyebrow{
+  display:inline-block; text-transform:uppercase; letter-spacing:.12em;
+  font-size:.75rem; color:rgba(255,255,255,.8); margin-bottom:.5rem;
+}
+.btn-brand{
+  background: var(--primary); color:#fff; border:none; padding:.7rem 1.2rem;
+  border-radius:.75rem;
+  box-shadow:0 8px 18px color-mix(in srgb, var(--primary), transparent 75%);
+}
+.btn-brand:hover{ background: color-mix(in srgb, var(--primary), black 12%); }
+
+/* Chips invertidas para fondo oscuro */
+.chip{
+  border:1px solid color-mix(in srgb, var(--primary), transparent 70%);
+  color: var(--dark); padding:.35rem .7rem; border-radius:999px; font-size:.9rem;
+  background:#fff;
+}
+.chip-inv{
+  border-color: rgba(255,255,255,.4);
+  color:#fff; background: rgba(255,255,255,.12);
+}
+
+/* Botón borde claro sobre imagen oscura */
+.btn-outline-light{
+  color:#fff; border:1px solid rgba(255,255,255,.6);
+}
+.btn-outline-light:hover{ background:#fff; color:var(--dark); }
+
+.vehicle-card.bg-0km { 
+    --bg: url('../img/background2.jpg'); 
+}
+
+.vehicle-card.bg-usados {
+     --bg: url('../img/background2.jpg'); 
+}
+
+
 
 @media (max-width: 991.98px) {
     .page-header {
